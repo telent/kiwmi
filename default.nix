@@ -2,6 +2,7 @@
 , stdenv
 , fetchFromGitHub
 , cairo
+, fennel
 , glib
 , libdrm
 , libinput
@@ -35,6 +36,7 @@ stdenv.mkDerivation rec {
 
   buildInputs = [
     cairo
+    fennel
     glib
     libdrm
     libinput
@@ -48,6 +50,8 @@ stdenv.mkDerivation rec {
     wlroots_0_15
     xwayland
   ];
+
+  LUA_PATH = "${fennel}/share/lua/5.4.3/?.lua";
 
   mesonFlags = [ "-Dxwayland=enabled" ];
 
