@@ -7,6 +7,8 @@
 
 (kiwmi:on "view"
           (fn [view]
+            (let [(w h) (: (kiwmi:active_output) :size)]
+              (view:resize w h))
             (view:focus)
             (view:show)
 
