@@ -3,13 +3,14 @@
 ;; surely there is a better way to do this
 
 (fn next-key [tbl current-key]
+  "Returns the next key in tbl after current-key
+or the first key if current-key is last. tbl is traversed
+using pairs, so ordering may not be what you expect."
   (or
    (accumulate [val nil
                 id view (pairs tbl)
                 :until val]
-               (if (= id current-key)
-                   (next tbl id)
-                   nil))
+               (and (= id current-key) (next tbl id)))
    (next tbl)))
 
 (let [mytable  { :a 5 :b 7 999 17 }]
