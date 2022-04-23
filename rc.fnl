@@ -67,6 +67,8 @@
                            (o:set_mode 360 720 0))
                  :Left #(let [o (kiwmi:active_output)]
                           (o:set_mode 720 360 0))
+                 :Up #(each [o #(kiwmi:outputs $1 $2)]
+                        (print :hey o))
                  })
 
 (kiwmi:on "keyboard"
