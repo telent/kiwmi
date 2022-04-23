@@ -25,10 +25,10 @@
        (pairs all-views)]
     k [(v:id) (v:title)]))
 
-;; we will arrange each view to be the output width and height
-;; and at an x offset such that it doesn't overlap any other view.
-;; then we can switch from one view to the next by panning the
-;; output x position sideways
+;; each view is forced to the output width and height, and placed at
+;; an x offset such that it doesn't overlap any other view.  then we
+;; can switch from one view to the next by panning the output x
+;; position sideways
 
 ;; I don't know how this interacts with layer-shell windows but
 ;; I *think* they deal in output-relative or surface-relative
