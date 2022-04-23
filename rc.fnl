@@ -63,6 +63,10 @@
                  :Return #(kiwmi:spawn "foot")
                  :Tab cycle-focus
                  :w #(match (kiwmi:focused_view) view (view:close))
+                 :Right #(let [o (kiwmi:active_output)]
+                           (o:set_mode 360 720 0))
+                 :Left #(let [o (kiwmi:active_output)]
+                          (o:set_mode 720 360 0))
                  })
 
 (kiwmi:on "keyboard"
@@ -74,5 +78,6 @@
                                  bind (or (bind ev) true)
                                  nil false)
                                false)))))
+(kiwmi:on "output" #(doto $1 (: :set_mode 360 720 0)))
 
 (kiwmi:spawn "swaybg -c '#ff00ff'")
